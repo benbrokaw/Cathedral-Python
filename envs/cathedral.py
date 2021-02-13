@@ -4,7 +4,7 @@ import matplotlib as mpl
 from matplotlib import pyplot as plt
 from numpy.lib.function_base import piecewise, select
 
-import game_pieces
+import envs.game_pieces
 
 WHITE = 1
 BLACK = 2
@@ -103,13 +103,19 @@ def score_game(wp,bp):
     for bpiece in bp:
         bTotal += np.sum(bpiece[1])
         
+    winner = ''
+        
     if wpiece < bpiece:
+        winner = 'white'
         print('White Wins!')
     elif bpiece < wpiece:
+        winner = 'black'
         print('Black Wins!')
     else:
         print('Tie Game!')
     print('Remaining Squares - White: %i Black: %i' % wpiece, bpiece)
+    
+    return wpiece, bpiece, winner
         
 def main():
     w,b,board = setup_game()
