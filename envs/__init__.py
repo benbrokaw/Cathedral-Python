@@ -1,1 +1,0 @@
-from Cathedral_Python.envs.cathedral_env import Cathedral_Env
